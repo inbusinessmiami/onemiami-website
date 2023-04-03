@@ -1,0 +1,33 @@
+
+$color1: #333;
+
+html {
+  padding: 0;
+  margin: 0;
+  color: $color1;
+}
+
+a {
+  color: $color1;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+main {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Kumbh Sans', sans-serif;
+  transition: all 0.5s;
+
+  .content {
+    .title{
+      font-weight: bold;
+    }
+  }
+}
