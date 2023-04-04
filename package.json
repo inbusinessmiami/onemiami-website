@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
-    "deploy": "parcel build src/index.html --public-url ./ && gh-pages -d dist"
+    "build": "parcel build src/index.html --public-url ./",
+    "deploy": "npm build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
