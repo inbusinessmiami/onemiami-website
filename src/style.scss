@@ -18,16 +18,19 @@ a {
 main {
   padding: 0;
   margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: 'Kumbh Sans', sans-serif;
   transition: all 0.5s;
 
-  .content {
-    .title{
-      font-weight: bold;
-    }
+  #headline {
+  }
+
+  #video{
+    display: flex;
+    justify-content: center;
+  }
+
+  #form {
+
   }
 }
+
