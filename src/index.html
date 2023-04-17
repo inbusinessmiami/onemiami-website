@@ -50,18 +50,21 @@
     <div id="form" class="container mb-4">   
       <!-- https://docs.netlify.com/forms/setup/ -->
       <div class="fs-2 mb-2">Contact us for more info</div>
-      <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+      <form name="contact" class="needs-validation" method="POST" data-netlify="true" data-netlify-recaptcha="true">
         <div class="mb-3">
-          <label for="input-name" class="form-label">Name</label>
-          <input name="name" ype="text" class="form-control"id="input-name" placeholder="Firstname Lastname">
+          <label for="input-name" class="form-label">Name *</label>
+          <input required name="name" ype="text" class="form-control"id="input-name" placeholder="Firstname Lastname">
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" name="email" class="form-control" id="input-email" placeholder="name@example.com">
+          <label for="email" class="form-label">Email address *</label>
+          <input required type="email" name="email" class="form-control" id="input-email" placeholder="name@example.com">
         </div>
         <div class="mb-3">
-          <label for="input-message" class="form-label">Message</label>
-          <textarea name="message" class="form-control" id="input-message" rows="3"></textarea>
+          <label for="input-message" class="form-label">Message *</label>
+          <textarea required name="message" class="form-control" id="input-message" rows="3"></textarea>
+        </div>
+        <div class="small text-muted">
+          * required fields
         </div>
 
         <div class="d-flex justify-content-center">
