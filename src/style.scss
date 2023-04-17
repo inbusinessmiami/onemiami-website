@@ -1,5 +1,6 @@
 
 $color1: #333;
+$container-size1: 700px;
 
 html {
   padding: 0;
@@ -27,10 +28,14 @@ main {
   #video{
     display: flex;
     justify-content: center;
+    iframe{
+      width: $container-size1;
+      overflow: hidden;
+    }
   }
 
   #form {
-
+    max-width: $container-size1;
   }
 }
 

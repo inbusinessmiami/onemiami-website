@@ -25,9 +25,9 @@
   <link rel="stylesheet" href="style.scss">
 </head>
 <body>
-  <main>
+  <main class="">
     
-    <div id="headline" class="container">
+    <div id="headline" class="container-md">
       <div class="content text-center">
         <div class="title fs-1 mb-2">OneMiami</div>
         <div class="contact  fs-4">
@@ -36,12 +36,12 @@
       </div>
     </div>
 
-    <div id="video" class="container">
+    <div id="video" class="container-md">
       <!-- embed -->
       <div style="position: relative; overflow: hidden;" class="mb-4">
         <iframe src="https://share.synthesia.io/embeds/videos/b1e39484-26c2-443d-a6b7-9425f1c72b87" loading="lazy"
           title="Synthesia video player" allow="encrypted-media; fullscreen;"
-          style="width: 700px; height: 390px; border: none; padding: 0; margin-top: 2rem;">
+          style="height: 390px; border: none; padding: 0; margin-top: 2rem;">
         </iframe>
       </div>
       <!-- end embed -->
@@ -49,7 +49,7 @@
 
     <div id="form" class="container mb-4">   
       <!-- https://docs.netlify.com/forms/setup/ -->
-      <div class="fs-2 mb-2">Contact us for for info</div>
+      <div class="fs-2 mb-2">Contact us for more info</div>
       <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
         <div class="mb-3">
           <label for="input-name" class="form-label">Name</label>
@@ -74,7 +74,7 @@
     </div>
   </main>
 
-  <footer class="container text-center small mb-2">
+  <footer class="container-md text-center small mb-2">
     <hr>
     <b>InbusinessMiami</b> - 325 s biscayne blvd, # 371 - Miami, FL 33131
   </footer>
