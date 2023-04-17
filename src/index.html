@@ -25,23 +25,23 @@
   <link rel="stylesheet" href="style.scss">
 </head>
 <body>
-  <main class="">
-    
+  <main class="mt-4">
     <div id="headline" class="container-md">
       <div class="content text-center">
-        <div class="title fs-1 mb-2">OneMiami</div>
+        <div class="title fs-1 mb-2 fw-bold">OneMiami</div>
         <div class="contact  fs-4">
           <a href="mailto:cristiano@onemiami.com">contact@onemiami.info</a>
         </div>
       </div>
+      <hr>
     </div>
 
-    <div id="video" class="container-md">
+    <div id="video" class="container">
       <!-- embed -->
       <div style="position: relative; overflow: hidden;" class="mb-4">
         <iframe src="https://share.synthesia.io/embeds/videos/b1e39484-26c2-443d-a6b7-9425f1c72b87" loading="lazy"
           title="Synthesia video player" allow="encrypted-media; fullscreen;"
-          style="height: 390px; border: none; padding: 0; margin-top: 2rem;">
+          style="border: none; padding: 0; margin-top: 2rem;">
         </iframe>
       </div>
       <!-- end embed -->
@@ -64,8 +64,9 @@
           <textarea name="message" class="form-control" id="input-message" rows="3"></textarea>
         </div>
 
-
-        <div class="mb-2" data-netlify-recaptcha="true"></div>
+        <div class="d-flex justify-content-center">
+          <div class="mb-2" data-netlify-recaptcha="true"></div>
+        </div>
         
         <p class="text-center">
           <button type="submit" class="btn btn-primary w-50">Send</button>
