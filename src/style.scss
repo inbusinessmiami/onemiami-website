@@ -23,6 +23,13 @@ main {
   transition: all 0.5s;
 
   #headline {
+    display: flex;
+    justify-content: center;
+    #logo-link {
+      min-width: 100px;
+      max-width: 20vw;
+      display: block;
+    }
   }
 
   #video{
@@ -34,9 +41,6 @@ main {
     }
   }
 
-  #form {
-    max-width: $container-size1;
-  }
 }
 
 @media screen and (min-width: 480px) {
