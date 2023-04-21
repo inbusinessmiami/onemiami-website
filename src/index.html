@@ -29,6 +29,20 @@
 
   </head>
   <body>
+    <script>
+      function validate_form() {
+
+          const recaptcha_box_checked = (grecaptcha.getResponse()) ? true : false;
+
+          if (recaptcha_box_checked) {
+            return true;
+          }
+          else {
+            alert("Please check the reCaptcha field");
+            return false;
+          }
+        }
+    </script>
     <main class="mt-4">
       <div id="headline" class="container-md text-center">
         <div class="content">
@@ -42,10 +56,9 @@
       <div id="video" class="container mb-4">
         <!-- embed -->
         <div style="position: relative; overflow: hidden;" class="">
-          <iframe src="https://share.synthesia.io/embeds/videos/b1e39484-26c2-443d-a6b7-9425f1c72b87" loading="lazy"
-            title="Synthesia video player" allow="encrypted-media; fullscreen;"
-            style="border: none; padding: 0; margin-top: 2rem;">
-          </iframe>
+          <video width="320" height="240" controls>
+            <source src="./assets/welcome.mp4" type="video/mp4">
+          </video>
         </div>
         <!-- end embed -->
       </div>
@@ -79,7 +92,7 @@
             </div>
             <div class="modal-body">
               <!-- https://docs.netlify.com/forms/setup/ -->
-              <form name="contact" class="needs-validation" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+              <form name="contact" class="needs-validation" method="POST" data-netlify="true" data-netlify-recaptcha="true" onsubmit="return validate_form();">
                 <div class="accordion accordion-flush">
                   <div class="accordion-item">
                     <!-- <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -138,13 +151,13 @@
                           <textarea name="message" class="form-control" id="input-message" rows="3"></textarea>
                         </div>
 
-                        <div class="d-flex justify-content-center">
-                          <div class="mb-2" data-netlify-recaptcha="true"></div>
-                        </div>
-
                       </div>
                     </div>
                   </div>
+                </div>
+                
+                <div class="d-flex justify-content-center">
+                  <div class="mb-2" data-netlify-recaptcha="true"></div>
                 </div>
 
                 <p class="text-center mt-4">
