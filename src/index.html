@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="860b304f-ae3a-4a8e-9cd1-e940cae42dea" data-blockingmode="auto" type="text/javascript"></script>
-   
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L1JJ7LVXL"></script>
     <script>
@@ -16,6 +15,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneMiami</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,16 +29,30 @@
 
   </head>
   <body>
+    <script>
+      function validate_form() {
+
+          const recaptcha_box_checked = (grecaptcha.getResponse()) ? true : false;
+
+          if (recaptcha_box_checked) {
+            return true;
+          }
+          else {
+            return false;
+          }
+        }
+    </script>
     <main class="mt-4">
       <div id="headline" class="container-md text-center">
         <div class="content">
           <a href="https://onemiami.info" id="logo-link" title="logo">
-            <img src="./assets/logo_inbusiness.jpg" alt="one miami logo" class="img-fluid">
+            <!-- <img src="./assets/logo_inbusiness.jpg" alt="one miami logo" class="img-fluid"> -->
+            <img src="./assets/logo_onemiami.png" alt="one miami logo" class="img-fluid">
           </a>
         </div>
       </div>
 
-      <div id="video" class="container">
+      <div id="video" class="container mb-4">
         <!-- embed -->
         <div style="position: relative; overflow: hidden;" class="">
           <iframe src="https://share.synthesia.io/embeds/videos/b1e39484-26c2-443d-a6b7-9425f1c72b87" loading="lazy"
@@ -45,10 +63,22 @@
         <!-- end embed -->
       </div>
 
-      <div class="container text-center">
+
+      <div id="citation" class="container text-center mb-4">
+        <figure>
+          <blockquote class="blockquote">
+            <p>"Risk comes from not knowing what you're doing."</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            Warren Buffett
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="container text-center mb-4">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary triggersModal" data-bs-toggle="modal" data-bs-target="#modalForm">
-          Contact us
+          What's new?
         </button>
       </div>
 
@@ -57,12 +87,12 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title pl-4 ms-3 fw-bold" id="modalFormLabel">Contact us</h5>
+              <h5 class="modal-title pl-4 ms-3 fw-bold" id="modalFormLabel">What's new?</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <!-- https://docs.netlify.com/forms/setup/ -->
-              <form name="contact" class="needs-validation" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+              <form name="contact" class="needs-validation" method="POST" data-netlify="true" data-netlify-recaptcha="true" onsubmit="return validate_form();">
                 <div class="accordion accordion-flush">
                   <div class="accordion-item">
                     <!-- <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -73,7 +103,7 @@
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                       <div class="accordion-body">
                         <p>
-                          Get notification of new properties as they become available.
+                          Get notification about new offers and sales as they become available.
                         </p>
                         <div class="mb-3">
                           <input required type="email" name="email" class="form-control" id="input-email" placeholder="name@example.com">
@@ -92,11 +122,11 @@
 
                         <div class="mb-3">
                           <label for="input-name" class="form-label">Name</label>
-                          <input required name="name" type="text" class="form-control"id="input-name" placeholder="Your name">
+                          <input name="name" type="text" class="form-control"id="input-name" placeholder="Your name">
                         </div>
 
                         <div class="mb-3">
-                          <label for="input-beds" class="form-label">Bedrooms</label>
+                          <label for="input-beds" class="form-label"># of bedrooms</label>
                           <select name="bedrooms" class="form-select" aria-label="Bedrooms">
                             <option selected value="-1">Any</option>
                             <option value="0">Studio</option>
@@ -121,7 +151,6 @@
                           <textarea name="message" class="form-control" id="input-message" rows="3"></textarea>
                         </div>
 
-                        
                       </div>
                     </div>
                   </div>
@@ -130,7 +159,7 @@
                 <div class="d-flex justify-content-center">
                   <div class="mb-2" data-netlify-recaptcha="true"></div>
                 </div>
-                
+
                 <p class="text-center mt-4">
                   <button type="submit" class="btn btn-primary w-50 triggersModal">Send</button>
                 </p>
@@ -162,9 +191,16 @@
 
     <footer class="container-md text-center small mb-2">
       <hr>
-      <b>InbusinessMiami</b> - 325 biscayne blvd, #371 - Miami, FL 33131 - <a href="mailto:contact@onemiami.info">contact@onemiami.info</a> 
-      <br>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modal-cookie-declaration">Coookie declaration</a>
+      <div class="mb-0">
+        <img src="assets/logo_inbusiness.jpg" alt="" class="logo"> <b>InbusinessMiami</b>, 325 S Biscayne Blvd, Miami FL 33131
+        <br>Phone <a href="tel:+ 1 305 490 9976">+ 1 305 490 9976</a>, Email: <a href="mailto:contact@onemiami.info">contact@onemiami.info</a> 
+      </div>
+      <div class="mb-1 text-muted">
+        InbusinessMiami is an independent licensed real estate brokerage servicing South Florida since 1993
+      </div>
+      <div class="mb-1 text-muted">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-cookie-declaration">Coookie declaration</a>
+      </div>
     </footer>
 
     <script src="scripts.js"></script>
