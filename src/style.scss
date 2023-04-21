@@ -34,7 +34,8 @@ main {
 
   #video{
     max-width: $container-size1;
-    iframe{
+    iframe,
+    video{
       height: 250px;
       width: 100%;
       overflow: hidden;
