@@ -42,12 +42,17 @@ main {
     }
   }
 
-}
-  footer {
-    .logo{
-      width: 30px;
-    }
+  blockquote {
+    font-style: italic;
   }
+
+}
+
+footer {
+  .logo{
+    width: 30px;
+  }
+}
 
 @media screen and (min-width: 480px) {
   main {
