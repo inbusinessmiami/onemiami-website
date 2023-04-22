@@ -13,6 +13,17 @@ function setup(){
     })
   })
 
+  const setVideo = () => {
+    const video = document.getElementById('video1');
+    const videoContainer = document.getElementById('video-container');
+    video.style.width = '100%';
+    video.style.height = videoContainer.offsetWidth / (1.77) + 'px';
+    console.log(`videoContainer.offsetWidth: ${videoContainer.offsetWidth} > video.style.height: ${video.style.height}`)
+  }
+  setVideo();
+
+  window.addEventListener('resize', setVideo)
+
   setTimeout(() => {
     if(!formTriggered) modalForm.show();
   }, 80*1000);
