@@ -17,7 +17,10 @@ function setup(){
     const video = document.getElementById('video1');
     const videoContainer = document.getElementById('video-container');
     video.style.width = '100%';
-    video.style.height = videoContainer.offsetWidth / (1.77) + 'px';
+    const videoContainerWidthMax = 860;
+    let videoContainerWidth = videoContainer.offsetWidth;
+    if (videoContainerWidth > videoContainerWidthMax) videoContainerWidth = videoContainerWidthMax;
+    video.style.height = videoContainerWidth / (1.77) + 'px';
     console.log(`videoContainer.offsetWidth: ${videoContainer.offsetWidth} > video.style.height: ${video.style.height}`)
   }
   setVideo();
