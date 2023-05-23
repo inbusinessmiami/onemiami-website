@@ -1,61 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<script setup>
+  import { onMounted } from 'vue'
+  import { RouterLink, RouterView } from 'vue-router'
+  import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L1JJ7LVXL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0L1JJ7LVXL');
-    </script>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneMiami</title>
+  let formTriggered = false;
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+  const setVideo = () => {
+    const video = document.getElementById('video1');
+    const videoContainer = document.getElementById('video-container');
+    video.style.width = '100%';
+    const videoContainerWidthMax = 860;
+    let videoContainerWidth = videoContainer.offsetWidth;
+    if (videoContainerWidth > videoContainerWidthMax) videoContainerWidth = videoContainerWidthMax;
+    video.style.height = videoContainerWidth / (1.77) + 'px';
+    console.log(`videoContainer.offsetWidth: ${videoContainer.offsetWidth} > video.style.height: ${video.style.height}`)
+  }
+
+  const setup = () => {
+    console.log('mounted!')
+    let cookieDeclarationScript = document.createElement('script')
+    cookieDeclarationScript.setAttribute('id', 'CookieDeclaration')
+    cookieDeclarationScript.setAttribute('async', 'true')
+    cookieDeclarationScript.setAttribute('src', 'https://consent.cookiebot.com/860b304f-ae3a-4a8e-9cd1-e940cae42dea/cd.js')
+    document.querySelector('.modal-cookie-declarationmodal-body').append(cookieDeclarationScript)
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.scss">
+    const modalForm = new bootstrap.Modal(document.getElementById('modalForm'), {
+      keyboard: false
+    })
+    
+    Array.from(document.getElementsByClassName('triggersModal')).forEach((el) => {
+      el.addEventListener("click", () => {
+        console.log("triggersModal")
+        formTriggered = true;
+      })
+    })
 
-  </head>
-  <body>
-    <script>
-      function validate_form() {
+    setVideo();
+    window.addEventListener('resize', setVideo)
 
-          const recaptcha_box_checked = (grecaptcha.getResponse()) ? true : false;
+    setTimeout(() => {
+      if(!formTriggered) modalForm.show();
+    }, 80*1000);
+  }
 
-          if (recaptcha_box_checked) {
-            return true;
-          }
-          else {
-            alert("Please check the reCaptcha field");
-            return false;
-          }
-        }
-    </script>
+  onMounted(() => {
+    setup();
+  })
+
+</script>
+
+<template>
     <main class="mt-4">
       <div id="headline" class="container-md text-center mb-4">
         <div class="content">
           <a href="https://onemiami.info" id="logo-link" title="logo">
-            <!-- <img src="./assets/logo_inbusiness.jpg" alt="one miami logo" class="img-fluid"> -->
-            <img src="./assets/logo_onemiami.png" alt="one miami logo" class="img-fluid">
+            <!-- <img src="/logo_inbusiness.jpg" alt="one miami logo" class="img-fluid"> -->
+            <img src="/logo_onemiami.png" alt="one miami logo" class="img-fluid">
           </a>
         </div>
       </div>
 
       <div id="video-container" class="container mb-4">
         <video controls autoplay playsinline id="video1"  >
-          <source src="./assets/OneMiami.mp4" type="video/mp4">
+          <source src="/OneMiami.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -118,7 +126,7 @@
 
                         <div class="mb-3">
                           <label for="input-name" class="form-label">Name</label>
-                          <input name="name" type="text" class="form-control"id="input-name" placeholder="Your name">
+                          <input name="name" type="text" class="form-control" id="input-name" placeholder="Your name">
                         </div>
 
                         <div class="mb-3">
@@ -176,8 +184,7 @@
             <h5 class="modal-title" id="modal-cookie-declarationLabel">Cookie declaration</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <script id="CookieDeclaration" src="https://consent.cookiebot.com/860b304f-ae3a-4a8e-9cd1-e940cae42dea/cd.js" type="text/javascript" async></script>
+          <div class="modal-cookie-declarationmodal-body">
           </div>
         </div>
       </div>
@@ -188,7 +195,7 @@
     <footer class="container-md text-center small mb-2">
       <hr>
       <div class="mb-0">
-        <img src="assets/logo_inbusiness.jpg" alt="" class="logo"> <b>InbusinessMiami</b>, 325 S Biscayne Blvd, Miami FL 33131
+        <img src="/logo_inbusiness.jpg" alt="" class="logo"> <b>InbusinessMiami</b>, 325 S Biscayne Blvd, Miami FL 33131
         <br>Phone <a href="tel:+ 1 305 490 9976">+ 1 305 490 9976</a>, Email: <a href="mailto:contact@onemiami.info">contact@onemiami.info</a> 
       </div>
       <div class="mb-1 text-muted">
@@ -199,7 +206,89 @@
       </div>
     </footer>
 
-    <script src="scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  </body>
-</html>
+
+  <RouterView />
+</template>
+
+<style lang="scss" scoped>
+$color1: #333;
+$container-size1: 700px;
+
+$debug: false;
+
+// mixin that show border if $debug is true
+@mixin debug($color: red, $size: 1px) {
+  @if $debug {
+    border: $size solid $color;
+  }
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  color: $color1;
+}
+
+a {
+  color: $color1;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+main {
+  padding: 0;
+  margin: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+  transition: all 0.5s;
+
+  #headline {
+    display: flex;
+    justify-content: center;
+    #logo-link {
+      min-width: 200px;
+      max-width: 20vw;
+      display: block;
+    }
+  }
+
+  #video-container{
+    width: 100%;
+    @include debug();
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
+}
+
+footer {
+  .logo{
+    width: 30px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  main {
+    #video{
+      iframe{
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  main {
+    #video{
+      iframe{
+        height: 400px;
+      }
+    }
+  }
+}
+
+
+</style>

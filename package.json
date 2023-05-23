@@ -1,30 +1,31 @@
 {
-  "name": "onemiami-website",
-  "version": "1.0.0",
-  "description": "",
+  "name": "onemiami",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./",
-    "deploy": "npm build && gh-pages -d dist"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/incodeit/onemiami-website.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/incodeit/onemiami-website/issues"
-  },
-  "homepage": "https://github.com/incodeit/onemiami-website#readme",
   "dependencies": {
-    "gh-pages": "^5.0.0",
-    "parcel": "^2.8.3"
+    "@popperjs/core": "^2.11.7",
+    "bootstrap": "^5.2.3",
+    "pinia": "^2.0.36",
+    "vue": "^3.3.2",
+    "vue-router": "^4.2.0"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "^2.8.3",
-    "@parcel/transformer-sass": "^2.8.3",
-    "@parcel/transformer-webmanifest": "^2.8.3"
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/test-utils": "^2.3.2",
+    "cypress": "^12.12.0",
+    "jsdom": "^22.0.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.0",
+    "start-server-and-test": "^2.0.0",
+    "vite": "^4.3.5",
+    "vitest": "^0.31.0"
   }
 }
