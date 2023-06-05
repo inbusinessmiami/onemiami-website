@@ -26,7 +26,7 @@
   </div>
 
   <footer class="container-md text-center small mb-2">
-    <hr>
+    <!-- <hr> -->
     <div class="mb-0">
       <img src="/logo_inbusiness.jpg" alt="" class="logo"> <b>InbusinessMiami</b>, 325 S Biscayne Blvd, Miami FL 33131
       <br>Phone <a href="tel:+ 1 305 490 9976">+ 1 305 490 9976</a>, Email: <a href="mailto:contact@onemiami.info">contact@onemiami.info</a> 

@@ -6,26 +6,19 @@
   import VideoMessage from "./components/VideoMessage.vue";
   import Citation from "./components/Citation.vue";
   import ContactForm from "./components/ContactForm.vue";
+  import UnitsTable from "./components/UnitsTable.vue";
   import PageFooter from "./components/PageFooter.vue";
 
   window.formTriggered = false;
 
-  const setup = () => {
+  onMounted(() => {
     console.log('app mounted!')
-   
-
-    
     Array.from(document.getElementsByClassName('triggersModal')).forEach((el) => {
       el.addEventListener("click", () => {
         console.log("triggersModal")
         window.formTriggered = true;
       })
     })
-
-  }
-
-  onMounted(() => {
-    setup();
   })
 
 </script>
@@ -36,6 +29,7 @@
       <VideoMessage />
       <Citation />
       <ContactForm />
+      <UnitsTable />
     </main>
     <PageFooter />
   <RouterView />
