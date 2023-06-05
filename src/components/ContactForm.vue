@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <div class="container text-center mb-4">
+  <div class="container text-center mb-5">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary triggersModal" data-bs-toggle="modal" data-bs-target="#modalForm">
       What's new?

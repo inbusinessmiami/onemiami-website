@@ -2,6 +2,7 @@
   import { onMounted } from 'vue';
   import { ref } from 'vue';
   const units = ref(null);
+  const loading = ref(true);
 
   const loadData = async () => {
     let filter = `$filter=BuildingName eq 'one-miami'&`;
@@ -11,6 +12,7 @@
     const data = await response.json()
     console.log(data)
     units.value = data.value
+    loading.value = false;
   }
 
   onMounted (() => {
@@ -20,7 +22,10 @@
 </script>
 
 <template>
-  <div id="units" class="mb-4">
+  <div v-if="loading" class="text-center mb-5">
+    <div class="spinner-border spinner-border-sm"></div> loading data...
+  </div>
+  <div v-if="!loading" id="units" class="mb-5">
     <h2 class="mb-2">Units</h2>
     <table class="table table-hover">
       <thead>
@@ -57,8 +62,11 @@
       Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
     </div>
   </div>
+  
 </template>
 
 <style scoped>
-
+  th {
+    font-weight: 600;
+  }
 </style>
